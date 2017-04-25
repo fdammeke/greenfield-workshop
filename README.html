@@ -1028,44 +1028,55 @@ body .markdown-body
 <li>The <em>Greenfield Web Dashboard</em> is a convenient way to view and manage your OpenStack setup.</li>
 <li>The <em>Greenfield commandline interface</em> is better suited for an interface-as-code way of interacting. For instance by issuing a command to load pre-defined configuration templates from a file, or to invoke specific commands to bring up an instance, etc.</li>
 </ul>
-<h1 id="hands-on-time"><a name="user-content-hands-on-time" href="#hands-on-time" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Hands-on Time</h1>
-<p>After this introduction, it&rsquo;s up to you to get your hands dirty. We propose you start with the most simple task of creating a single Linux server that you can log into with SSH.</p>
+<p><em>After this introduction, it&rsquo;s up to you to get your hands dirty. We propose you start with the most simple task of creating a single Linux server that you can log into with SSH.</em></p>
 <h2 id="a-single-server-with-ssh-access"><a name="user-content-a-single-server-with-ssh-access" href="#a-single-server-with-ssh-access" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>A Single Server with SSH Access</h2>
-<p>Setting up a single linux server that you can access through SSH requires a number of things:<br />
+<p>In OpenStack, setting up a single linux server that you can access through SSH requires a number of things:<br />
 1. Network <br />
-2. Security Group (firewall rules that allow SSH traffic)<br />
-3. Image (a linux distro)<br />
-4. Instance (virtual machine)<br />
-5. Floating IP (to access your instance)</p>
-<h3 id="walkthrough"><a name="user-content-walkthrough" href="#walkthrough" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Walkthrough</h3>
-<h4 id="1-access-the-greenfield-dashboard"><a name="user-content-1-access-the-greenfield-dashboard" href="#1-access-the-greenfield-dashboard" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1. Access the Greenfield Dashboard</h4>
-<p>Browse to the <a href="https://openstack-acc.cegeka.com">Greenfield Web Dashboard</a> (open in a new tab). You should arrive on a page that looks like the following image.<br />
-<img alt="Greenfield Login" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-dashboard-login.png" title="Greenfield Login" /><br />
+2. Security Group (firewall rules that allow incoming SSH traffic)<br />
+3. Instance (virtual machine)<br />
+4. Floating IP (a public IP to access your instance)</p>
+<h3 id="0-access-the-greenfield-dashboard"><a name="user-content-0-access-the-greenfield-dashboard" href="#0-access-the-greenfield-dashboard" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>0. Access the Greenfield Dashboard</h3>
+<p>Browse to the <a href="https://openstack-acc.cegeka.com">Greenfield Web Dashboard</a> (open in a new tab). You should arrive on a page that looks like the following image. <img alt="Greenfield Login" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-dashboard-login.png" title="Greenfield Login" /><br />
 Enter the credentials that have been handed to you at the start of the session (your username and password are under the heading <strong>1.2 Openstack environment</strong>).</p>
-<blockquote>
 <ul>
 <li>Domain: &ldquo;cegekanv&rdquo;</li>
 <li>Username: provided username</li>
 <li>Password: provided password</li>
 </ul>
-</blockquote>
-<p>You will be greeted with the Dashboard screen showing the amount of free and used resources.<br />
-<img alt="Greenfield dashboard" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-dashboard.png" title="Greenfield dashboard" /></p>
-<h4 id="2-setting-up-a-network"><a name="user-content-2-setting-up-a-network" href="#2-setting-up-a-network" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2. Setting up a network</h4>
-<p>One of the first things to do in a vanilla Greenfield environment, is setting up a private network and a router that allows traffic to flow from and to the public network (the internet). To create a network navigate to <em>Network</em> in the menu bar at the top, and click <em>Network Topology</em>. <img alt="Network Topology tab" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-tab-network.png" title="Network Topology tab" /></p>
-<p>On the right, there are three buttons, click the middle one that is named <code>+ Create Network</code>.</p>
+<p>You will be greeted with the Dashboard screen showing the amount of free and used resources. <img alt="Greenfield dashboard" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-dashboard.png" title="Greenfield dashboard" /><br />
+These resources are:<br />
+- Instances: &hellip;<br />
+- TODO</p>
+<h3 id="1-setting-up-a-network"><a name="user-content-1-setting-up-a-network" href="#1-setting-up-a-network" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1. Setting up a network</h3>
+<p>One of the first things to do in a vanilla Greenfield environment (called project), is setting up a private network and a router that allows traffic to flow from and to the public network (the internet). To create a network navigate to <em>Network</em> in the menu bar at the top, and click <em>Network Topology</em>. </p>
+<p><img alt="Network Topology tab" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-tab-network.png" title="Network Topology tab" /></p>
+<p>On the right of the Network Topology screen are three buttons, click <code>Create Network</code>.</p>
 <ol>
-<li>Give your network the name <code>private</code> and click the Next button. <img alt="Create Network" src="/Users/steveodb/repos/greenfield-workshop/img/create-network.png" /></li>
-<li>For the subnet, under Network Address, enter <code>192.168.0.0/24</code> and click the Next button. <img alt="Create Subnet" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-subnet.png" /></li>
-<li>Finally, add Google&rsquo;s DNS servers (<code>8.8.8.8</code> and <code>8.8.4.4</code>) in the DNS Name Servers edit box (each on its own line) and click the Create button. <img alt="Enter DNS" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-dns.png" /></li>
+<li>Give your network the name <code>private</code> and go the next step. <img alt="Create Network" src="/Users/steveodb/repos/greenfield-workshop/img/create-network.png" /></li>
+<li>For the subnet, under Network Address, enter <code>192.168.0.0/24</code>. Go to the final step. <img alt="Create Subnet" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-subnet.png" /></li>
+<li>Finally, we need a set of DNS servers. For demonstration purposes we will use Google&rsquo;s DNS servers (<code>8.8.8.8</code> and <code>8.8.4.4</code>). Add these in the DNS Name Servers edit box (each on its own line) and click Create. Don&rsquo;t use these DNS records on actual production systems! <img alt="Enter DNS" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-dns.png" /></li>
 </ol>
-<p>Your network is created and visualised in the topology (properly rotated here for your viewing pleasure). <img alt="Network Topology" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-done.png" /></p>
-<p>Next, we need to add a router to allow traffic to flow between the public and private networks. On the <em>Network Topology</em> tab, on the right side, click the <code>+ Add Router</code> button.</p>
+<p>Your network is created and visualised in the topology (properly rotated here for your viewing pleasure). </p>
+<p><img alt="Network Topology" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-done.png" /></p>
+<p>Next, we need to add a router to allow traffic to flow between the public and private networks. On the <em>Network Topology</em> tab, on the right side, click <code>Add Router</code>.</p>
 <ol>
 <li>Give your router a name (e.g. publicrouter) and select an External Network from the dropdown box (scroll down if you don&rsquo;t see the dropdown box). <strong><em>If there is more than one option, ask one of the tutors which one you should select</em></strong>. Click the <code>Create Router</code> buttton. <img alt="Create Router" src="/Users/steveodb/repos/greenfield-workshop/img/create-router.png" /></li>
 <li>Back on the <em>Network Topology</em> screen, click on the router icon in the illustration and click on the <code>add interface</code> button in the popup that appears. <img alt="Add Interface to the router" src="/Users/steveodb/repos/greenfield-workshop/img/create-router-add-interface.png" /></li>
 <li>In the Add Interface wizard, select your private subnet from the dropdown box, and click the <code>Submit</code> button.</li>
 </ol>
-<p>Your private network should now be connected to a public network through the router. <img alt="Connected Router" src="/Users/steveodb/repos/greenfield-workshop/img/network-topology-router.png" /></p>
-<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.</h4>
+<p>Your private network is now connected to the public network through the router. You can verify this connection in the topology visualization. </p>
+<p><img alt="Connected Router" src="/Users/steveodb/repos/greenfield-workshop/img/network-topology-router.png" /></p>
+<p><em>This concludes the network setup. All virtual machines (instances in openstack terminology) added to this private network will have access to the public network.</em></p>
+<h3 id="2-define-a-security-group"><a name="user-content-2-define-a-security-group" href="#2-define-a-security-group" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2. Define a Security Group</h3>
+<p>A security group defines the rules for networking access between instances. The default security group defines that all outgoing traffic from instances is allowed, but all incoming traffic is blocked.</p>
+<p>To be able SSH into the instance we will later create, we need to allow incoming SSH traffic.</p>
+<p>Setting up a security group is done through the <code>Access &amp; Security</code> tab under the <code>Compute</code> menu.</p>
+<p><img alt="" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-tab-compute-access.png" /></p>
+<ol>
+<li>In the Access &amp; Security screen, click <code>Create Security Group</code>. Create a security group by the name <code>ssh-access-incoming</code>.</li>
+<li>In the Security Group management screen you will see that two rules have been created by default. Now we will add a rule that allows incoming SSH traffic. Click <code>Add Rule</code>. <img alt="" src="/Users/steveodb/repos/greenfield-workshop/img/security-group-management.png" /></li>
+<li>In the Add Rule screen, select the <code>SSH</code> rule from the dropdown box and leave Remote set to <code>CIDR</code>. This will allow incoming ssh traffic from any IP (this is probably not a good idea on a production system). Create the rule. <img alt="" src="/Users/steveodb/repos/greenfield-workshop/img/add-rule-ruletype.png" /></li>
+</ol>
+<p><em>This completes the creation of a Security Group that allows incoming SSH traffic. We will later attach this Security Group to our SSH server instance. this will allow incoming SSH traffic to flow to the instance.</em></p>
+<h3 id="3-create-an-instance"><a name="user-content-3-create-an-instance" href="#3-create-an-instance" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3. Create an Instance</h3>
 <h2 id="deploying-a-loadbalanced-wordpress-application"><a name="user-content-deploying-a-loadbalanced-wordpress-application" href="#deploying-a-loadbalanced-wordpress-application" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Deploying a Loadbalanced Wordpress application</h2></article></body></html>
