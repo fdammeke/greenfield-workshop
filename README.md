@@ -35,7 +35,7 @@ Setting up a single linux server that you can access through SSH requires a numb
 
 #### 1. Access the Greenfield Dashboard
 Browse to the [Greenfield Web Dashboard](https://openstack-acc.cegeka.com) (open in a new tab). You should arrive on a page that looks like the following image.
-    ![Greenfield Login](horizon-dashboard-login.png "Greenfield Login")
+    ![Greenfield Login](img/horizon-dashboard-login.png "Greenfield Login")
 Enter the credentials that have been handed to you at the start of the session (your username and password are under the heading __1.2 Openstack environment__).
 
 > - Domain: "cegekanv"
@@ -43,16 +43,16 @@ Enter the credentials that have been handed to you at the start of the session (
 > - Password: provided password
 
 You will be greeted with the Dashboard screen showing the amount of free and used resources.
-![Greenfield dashboard](horizon-dashboard.png "Greenfield dashboard")
+![Greenfield dashboard](img/horizon-dashboard.png "Greenfield dashboard")
 
 #### 2. Setting up a network
 One of the first things to do in a vanilla Greenfield environment, is setting up a private network and a router that allows traffic to flow from and to the public network (the internet). To create a network navigate:
     
-- Navigate to _Network_ in the menu bar at the top, and click _Network Topology_. ![Network Topology tab](horizon-tab-network.png "Network Topology tab")
+- Navigate to _Network_ in the menu bar at the top, and click _Network Topology_. ![Network Topology tab](img/horizon-tab-network.png "Network Topology tab")
 - On the right, there are three buttons, click the middle one that is named ```+ Create Network```. 
-    1. Give your network the name ```private``` and click the Next button. ![Create Network](create-network.png)
-    2. For the subnet, enter under Network Address ```192.168.0.0/24``` and click the Next button. ![Create Subnet](create-network-subnet.png)
-    3. Finally, add Google's DNS servers (8.8.8.8 and 8.8.4.4) in the ```DNS Name Servers``` edit box (each on its own line) and click the Create button. ![Enter DNS](create-network-dns.png)
-- Your network is created and visualised in the topology (properly rotated here for your viewing pleasure). ![Network Topology](create-network-done.png)
+    1. Give your network the name ```private``` and click the Next button. ![Create Network](img/create-network.png)
+    2. For the subnet, enter under Network Address ```192.168.0.0/24``` and click the Next button. ![Create Subnet](img/create-network-subnet.png)
+    3. Finally, add Google's DNS servers (8.8.8.8 and 8.8.4.4) in the ```DNS Name Servers``` edit box (each on its own line) and click the Create button. ![Enter DNS](img/create-network-dns.png)
+- Your network is created and visualised in the topology (properly rotated here for your viewing pleasure). ![Network Topology](img/create-network-done.png)
 
 ## Deploying a Loadbalanced Wordpress application
