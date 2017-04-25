@@ -1052,15 +1052,20 @@ Enter the credentials that have been handed to you at the start of the session (
 <p>You will be greeted with the Dashboard screen showing the amount of free and used resources.<br />
 <img alt="Greenfield dashboard" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-dashboard.png" title="Greenfield dashboard" /></p>
 <h4 id="2-setting-up-a-network"><a name="user-content-2-setting-up-a-network" href="#2-setting-up-a-network" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2. Setting up a network</h4>
-<p>One of the first things to do in a vanilla Greenfield environment, is setting up a private network and a router that allows traffic to flow from and to the public network (the internet). To create a network navigate:</p>
-<ul>
-<li>Navigate to <em>Network</em> in the menu bar at the top, and click <em>Network Topology</em>. <img alt="Network Topology tab" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-tab-network.png" title="Network Topology tab" /></li>
-<li>On the right, there are three buttons, click the middle one that is named <code>+ Create Network</code>. <ol>
+<p>One of the first things to do in a vanilla Greenfield environment, is setting up a private network and a router that allows traffic to flow from and to the public network (the internet). To create a network navigate to <em>Network</em> in the menu bar at the top, and click <em>Network Topology</em>. <img alt="Network Topology tab" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-tab-network.png" title="Network Topology tab" /></p>
+<p>On the right, there are three buttons, click the middle one that is named <code>+ Create Network</code>.</p>
+<ol>
 <li>Give your network the name <code>private</code> and click the Next button. <img alt="Create Network" src="/Users/steveodb/repos/greenfield-workshop/img/create-network.png" /></li>
-<li>For the subnet, enter under Network Address <code>192.168.0.0/24</code> and click the Next button. <img alt="Create Subnet" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-subnet.png" /></li>
-<li>Finally, add Google&rsquo;s DNS servers (8.8.8.8 and 8.8.4.4) in the <code>DNS Name Servers</code> edit box (each on its own line) and click the Create button. <img alt="Enter DNS" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-dns.png" /></li>
+<li>For the subnet, under Network Address, enter <code>192.168.0.0/24</code> and click the Next button. <img alt="Create Subnet" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-subnet.png" /></li>
+<li>Finally, add Google&rsquo;s DNS servers (<code>8.8.8.8</code> and <code>8.8.4.4</code>) in the DNS Name Servers edit box (each on its own line) and click the Create button. <img alt="Enter DNS" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-dns.png" /></li>
 </ol>
-</li>
-<li>Your network is created and visualised in the topology (properly rotated here for your viewing pleasure). <img alt="Network Topology" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-done.png" /></li>
-</ul>
+<p>Your network is created and visualised in the topology (properly rotated here for your viewing pleasure). <img alt="Network Topology" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-done.png" /></p>
+<p>Next, we need to add a router to allow traffic to flow between the public and private networks. On the <em>Network Topology</em> tab, on the right side, click the <code>+ Add Router</code> button.</p>
+<ol>
+<li>Give your router a name (e.g. publicrouter) and select an External Network from the dropdown box (scroll down if you don&rsquo;t see the dropdown box). <strong><em>If there is more than one option, ask one of the tutors which one you should select</em></strong>. Click the <code>Create Router</code> buttton. <img alt="Create Router" src="/Users/steveodb/repos/greenfield-workshop/img/create-router.png" /></li>
+<li>Back on the <em>Network Topology</em> screen, click on the router icon in the illustration and click on the <code>add interface</code> button in the popup that appears. <img alt="Add Interface to the router" src="/Users/steveodb/repos/greenfield-workshop/img/create-router-add-interface.png" /></li>
+<li>In the Add Interface wizard, select your private subnet from the dropdown box, and click the <code>Submit</code> button.</li>
+</ol>
+<p>Your private network should now be connected to a public network through the router. <img alt="Connected Router" src="/Users/steveodb/repos/greenfield-workshop/img/network-topology-router.png" /></p>
+<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.</h4>
 <h2 id="deploying-a-loadbalanced-wordpress-application"><a name="user-content-deploying-a-loadbalanced-wordpress-application" href="#deploying-a-loadbalanced-wordpress-application" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Deploying a Loadbalanced Wordpress application</h2></article></body></html>
