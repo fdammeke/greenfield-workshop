@@ -1047,9 +1047,10 @@ Enter the credentials that have been handed to you at the start of the session (
 These resources are:<br />
 - Instances: &hellip;<br />
 - TODO</p>
-<h3 id="1-setting-up-a-network"><a name="user-content-1-setting-up-a-network" href="#1-setting-up-a-network" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1. Setting up a network</h3>
+<h3 id="1-set-up-a-network"><a name="user-content-1-set-up-a-network" href="#1-set-up-a-network" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1. Set up a network</h3>
 <p>One of the first things to do in a vanilla Greenfield environment (called project), is setting up a private network and a router that allows traffic to flow from and to the public network (the internet). To create a network navigate to <em>Network</em> in the menu bar at the top, and click <em>Network Topology</em>. </p>
 <p><img alt="Network Topology tab" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-tab-network.png" title="Network Topology tab" /></p>
+<h4 id="create-a-network-and-subnet"><a name="user-content-create-a-network-and-subnet" href="#create-a-network-and-subnet" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Create a network and subnet</h4>
 <p>On the right of the Network Topology screen are three buttons, click <code>Create Network</code>.</p>
 <ol>
 <li>Give your network the name <code>private</code> and go the next step. <img alt="Create Network" src="/Users/steveodb/repos/greenfield-workshop/img/create-network.png" /></li>
@@ -1058,6 +1059,7 @@ These resources are:<br />
 </ol>
 <p>Your network is created and visualised in the topology (properly rotated here for your viewing pleasure). </p>
 <p><img alt="Network Topology" src="/Users/steveodb/repos/greenfield-workshop/img/create-network-done.png" /></p>
+<h4 id="create-a-router"><a name="user-content-create-a-router" href="#create-a-router" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Create a router</h4>
 <p>Next, we need to add a router to allow traffic to flow between the public and private networks. On the <em>Network Topology</em> tab, on the right side, click <code>Add Router</code>.</p>
 <ol>
 <li>Give your router a name (e.g. publicrouter) and select an External Network from the dropdown box (scroll down if you don&rsquo;t see the dropdown box). <strong><em>If there is more than one option, ask one of the tutors which one you should select</em></strong>. Click the <code>Create Router</code> buttton. <img alt="Create Router" src="/Users/steveodb/repos/greenfield-workshop/img/create-router.png" /></li>
@@ -1078,5 +1080,16 @@ These resources are:<br />
 <li>In the Add Rule screen, select the <code>SSH</code> rule from the dropdown box and leave Remote set to <code>CIDR</code>. This will allow incoming ssh traffic from any IP (this is probably not a good idea on a production system). Create the rule. <img alt="" src="/Users/steveodb/repos/greenfield-workshop/img/add-rule-ruletype.png" /></li>
 </ol>
 <p><em>This completes the creation of a Security Group that allows incoming SSH traffic. We will later attach this Security Group to our SSH server instance. this will allow incoming SSH traffic to flow to the instance.</em></p>
-<h3 id="3-create-an-instance"><a name="user-content-3-create-an-instance" href="#3-create-an-instance" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3. Create an Instance</h3>
+<h3 id="3-launching-an-instance"><a name="user-content-3-launching-an-instance" href="#3-launching-an-instance" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3. Launching an Instance</h3>
+<p>At this time, the project doesn&rsquo;t have any instances running. You can verify this by consulting the Instances tab, under the Compute menu.</p>
+<p>Now, head back to the Network Topology tab, under the Network menu. Clicking the <code>Launch Instance</code> button will start the wizard to configure a new instance.</p>
+<p><img alt="Launch an Instance" src="/Users/steveodb/repos/greenfield-workshop/img/launch-instance.png" /></p>
+<ol>
+<li>On the <code>Details</code> screen, provide a name for your instance (eg. &ldquo;ssh-server&rdquo;). You will be limited in the amount of instances you can create by the resources that have been reserved for your project. Move on the the <code>Source</code> screen.</li>
+<li>In the source screen, pick <code>Image</code> fom the <code>Select Boot Source</code> screen and add the <code>centos7</code> image by tapping the plus-sign behind its name.</li>
+<li>In the <code>Flavor</code> screen, add the <code>m1.small</code> flavor (tap on the plus).</li>
+<li>Finally, skip to <code>Security Groups</code> and add the <code>ssh-access-incoming</code>security group that we created earlier.</li>
+<li>Launch the Instance.</li>
+</ol>
+<p><img alt="Topology with network and instance" src="/Users/steveodb/repos/greenfield-workshop/img/network-topology-with-instance.png" /></p>
 <h2 id="deploying-a-loadbalanced-wordpress-application"><a name="user-content-deploying-a-loadbalanced-wordpress-application" href="#deploying-a-loadbalanced-wordpress-application" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Deploying a Loadbalanced Wordpress application</h2></article></body></html>
