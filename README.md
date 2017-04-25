@@ -55,4 +55,6 @@ One of the first things to do in a vanilla Greenfield environment, is setting up
     3. Finally, add Google's DNS servers (8.8.8.8 and 8.8.4.4) in the ```DNS Name Servers``` edit box (each on its own line) and click the Create button. ![Enter DNS](img/create-network-dns.png)
 - Your network is created and visualised in the topology (properly rotated here for your viewing pleasure). ![Network Topology](img/create-network-done.png)
 
+#### 3. 
+
 ## Deploying a Loadbalanced Wordpress application
