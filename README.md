@@ -182,7 +182,7 @@ If you wish to explore the options of the command line issue the following comma
 
 By now your stack should be deployed and ready to use. 
 
-__There should be at least 2 minutes between creating the stack and this point in time
+```There should be at least 2 minutes between creating the stack and this point in time```
 
 #### 4. Configure Wordpress.
 
@@ -198,3 +198,45 @@ __There should be at least 2 minutes between creating the stack and this point i
 
 6. Enter name, user, password... to configure Wordpress.
 
+7. Your wordpress is now ready to use. Try it out!
+
+#### 5. Explore autoscaling
+
+We could add load to the webserver to overrun it with requests or use a web hook to simulate an overrun effect. In this scenario we will use the web hook.
+
+1. In the GUI navigate to ```Orchestration - Stacks```. 
+
+2. Click on the link of your stack.
+
+3. Navigate to ```Overview```
+
+4. Copy the hyperlink next to ```web_scale_up_url```
+
+5. From the command line execute:
+
+> `curl -X POST "YOURHYPERLINK"`
+
+6. Every 100 seconds, the autoscaling monitors check whether they need to autoscale so please be patient. Openstack adds a new webserver. You can track the progress using the command:
+
+> `openstack server list`
+
+7. 100 seconds later the monitor will determine that an extra server is no longer required and will remove the oldest existing web server.
+
+#### 6. Stack changes
+
+Changes made to individual machines in the gui or via the command line are not being traced. Changes to the template however are. To simulate this we will make a simple change to the template and update the stack.
+
+##### 1. Log in to the stepping stone server via `ssh`
+
+##### 2. Set up your environment.
+
+> `source ospdemo<yournumber>rc`
+
+> `cd openstack-heat-templates`
+
+##### 3. Make a simple change.
+
+The master template is the file ```WebAppAutoScaling.yaml```
+It refers to a couple of template files residing in the lib directory. We are changing one of the sub-templates.
+
+> `cat lib/heat_app_tier.yaml | sed "s/OK/Very good/" > lib/heat_app_tier.yaml`
