@@ -182,6 +182,19 @@ If you wish to explore the options of the command line issue the following comma
 
 By now your stack should be deployed and ready to use. 
 
-** There should be at least 2 minutes between creating the stack and this point in time **
+__There should be at least 2 minutes between creating the stack and this point in time
 
+4. Configure Wordpress.
+
+In the GUI navigate to __Orchestration - Stacks. 
+
+Click on the link of your stack.
+
+Navigate to __Overview
+
+Look for the IP address next to __web_lbaas_ip
+
+Use your browser to surf to this IP address
+
+Enter name, user, password... to configure Wordpress.
 
