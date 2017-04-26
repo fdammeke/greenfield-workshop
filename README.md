@@ -140,7 +140,12 @@ Congratulations, this is the end of the walkthrough. If you have some time left 
 Use the hand-out, you can find username and password under the heading __1.1 Linux stepping-stone machine__).
 
 1. Log in to the stepping stone machine using ```ssh```.
-2. Set the environment
-> `source ospdemo<yournumber>rc`
-> `cd openstack-heat-templates`
+
+2. Set the environment.
+
+`source ospdemo<yournumber>rc`
+
+`cd openstack-heat-templates`
+
 3.
+
