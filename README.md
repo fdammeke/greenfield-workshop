@@ -146,6 +146,8 @@ Use the hand-out, you can find username and password under the heading __1.1 Lin
 
 #### 1. Log in to the stepping stone machine using ```ssh```.
 
+Before proceeding go back to the GUI, navigate to ```Compute - Instances``` and select ```Disassociate Floating IP``` on the instance you created in the previous section because you need this IP to create the stack.
+
 #### 2. Set the environment.
 
 > `source ospdemo<yournumber>rc`
