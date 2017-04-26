@@ -146,15 +146,15 @@ Here we use descriptive language to define the infrastructure in code, rather th
 
 Use the hand-out, you can find username and password under the heading __1.1 Linux stepping-stone machine__).
 
-1. Log in to the stepping stone machine using ```ssh```.
+####1. Log in to the stepping stone machine using ```ssh```.
 
-2. Set the environment.
+####2. Set the environment.
 
 > `source ospdemo<yournumber>rc`
 
 > `cd openstack-heat-templates`
 
-3. Create the stack
+####3. Create the stack
 
 In the GUI, navigate to Orchestration - Stacks.
 
@@ -184,7 +184,7 @@ By now your stack should be deployed and ready to use.
 
 __There should be at least 2 minutes between creating the stack and this point in time
 
-4. Configure Wordpress.
+####4. Configure Wordpress.
 
 In the GUI navigate to __Orchestration - Stacks. 
 
