@@ -239,4 +239,18 @@ Changes made to individual machines in the gui or via the command line are not b
 The master template is the file ```WebAppAutoScaling.yaml```
 It refers to a couple of template files residing in the lib directory. We are changing one of the sub-templates.
 
-> `cat lib/heat_app_tier.yaml | sed "s/OK/Very good/" > lib/heat_app_tier.yaml`
+> `cp lib/heat_app_tier.yaml lib/heat_app_tierOLD.yaml`
+
+> `cat lib/heat_app_tierOLD.yaml | sed "s/OK/Very good/" > lib/heat_app_tier.yaml`
+
+##### 4. Apply the change to the stack.
+
+Issue the command.
+
+> `openstack stack update --template WebAppAutoScaling.yaml --parameter ssh_key_name=demo --parameter image_id=centos7 --parameter dns_nameserver="8.8.8.8,8.8.8.4" --parameter public_network_id=public01 mystackname`
+
+Openstack will redeploy the webservers; it creates 2 new servers and removes the old servers.
+You can track this via the GUI ```Compute - Instances``` or command line.
+
+> `openstack server list`
+
