@@ -133,9 +133,16 @@ Once logged into the steppingstone server, use ```ssh``` to log into your instan
 
 Congratulations, this is the end of the walkthrough. If you have some time left you can proceed to the next section.
 
-## Deploying a Loadbalanced Wordpress application
+## Deploying a Autoscaling Wordpress application
 
 ### Prepare your work environment
+
+#### Context
+
+This section uses patterns to build an autoscaling 3-tier wordpress application.
+Here we use descriptive language to define the infrastructure in code, rather than manually implementing it step-by-step.
+
+#### Let's do it!
 
 Use the hand-out, you can find username and password under the heading __1.1 Linux stepping-stone machine__).
 
@@ -143,9 +150,15 @@ Use the hand-out, you can find username and password under the heading __1.1 Lin
 
 2. Set the environment.
 
-`source ospdemo<yournumber>rc`
+> `source ospdemo<yournumber>rc`
 
-`cd openstack-heat-templates`
+> `cd openstack-heat-templates`
 
-3.
+3. Create the stack
+
+In the GUI, navigate to Orchestration - Stacks.
+
+On the commandline, issue:
+
+> `openstack stack create --template WebAppAutoScaling.yaml --parameter ssh_key_name=demo --parameter image_id=centos7 --parameter dns_nameserver="8.8.8.8,8.8.8.4" --parameter public_network_id=public01`
 
