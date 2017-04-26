@@ -160,5 +160,6 @@ In the GUI, navigate to Orchestration - Stacks.
 
 On the commandline, issue:
 
-> `openstack stack create --template WebAppAutoScaling.yaml --parameter ssh_key_name=demo --parameter image_id=centos7 --parameter dns_nameserver="8.8.8.8,8.8.8.4" --parameter public_network_id=public01`
+> `openstack stack create --template WebAppAutoScaling.yaml --parameter ssh_key_name=demo --parameter image_id=centos7 --parameter dns_nameserver="8.8.8.8,8.8.8.4" --parameter public_network_id=public01 mystackname`
 
+![You should get the following output](img/stack_create_response.PNG)
