@@ -150,6 +150,12 @@ Use the hand-out, you can find username and password under the heading __1.1 Lin
 
 > `source ospdemo<yournumber>rc`
 
+You can test whether your environment is set correctly by issuing the command
+
+> `openstack stack list`
+
+If it returns and empty line, continue, otherwise reissue the previous command.
+
 > `cd openstack-heat-templates`
 
 #### 3. Create the stack
