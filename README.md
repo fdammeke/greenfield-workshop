@@ -186,13 +186,13 @@ __There should be at least 2 minutes between creating the stack and this point i
 
 #### 4. Configure Wordpress.
 
-1. In the GUI navigate to __Orchestration - Stacks. 
+1. In the GUI navigate to ```Orchestration - Stacks```. 
 
 2. Click on the link of your stack.
 
-3. Navigate to __Overview
+3. Navigate to ```Overview```
 
-4. Look for the IP address next to __web_lbaas_ip
+4. Look for the IP address next to ```web_lbaas_ip```
 
 5. Use your browser to surf to this IP address
 
