@@ -254,3 +254,17 @@ You can track this via the GUI ```Compute - Instances``` or command line.
 
 > `openstack server list`
 
+### 7. Delete ... and repeat at will
+
+Time to clean up? Delete a stack and if you want to, create a new one.
+
+To delete a stack, use the GUI and navigate to ```Orchestration - Stacks``` and select the dropdown option ```Delete stack``` of your stack.
+
+Alternatively, use the command line to issue the command
+
+> `openstack stack delete mystackname`
+
+## Thank you for participating
+
+If you have feedback, please send it to (mailto:koen.goossens@cegeka.com)
+
