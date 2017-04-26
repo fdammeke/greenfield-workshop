@@ -208,15 +208,15 @@ __There should be at least 2 minutes between creating the stack and this point i
 
 Changes made to individual machines in the gui or via the command line are not being traced. Changes to the template however are. To simulate this we will make a simple change to the template and update the stack.
 
-##### 1. Log in to the stepping stone server via `ssh`
+1. Log in to the stepping stone server via `ssh`
 
-##### 2. Set up your environment.
+2. Set up your environment.
 
 > `source ospdemo<yournumber>rc`
 
 > `cd openstack-heat-templates`
 
-##### 3. Make a simple change.
+3. Make a simple change.
 
 The master template is the file ```WebAppAutoScaling.yaml```
 It refers to a couple of template files residing in the lib directory. We are changing one of the sub-templates.
@@ -225,7 +225,7 @@ It refers to a couple of template files residing in the lib directory. We are ch
 
 > `cat lib/heat_app_tierOLD.yaml | sed "s/OK/Very good/" > lib/heat_app_tier.yaml`
 
-##### 4. Apply the change to the stack.
+4. Apply the change to the stack.
 
 Issue the command.
 
