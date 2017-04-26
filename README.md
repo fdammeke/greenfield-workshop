@@ -38,6 +38,7 @@ Enter the credentials that have been handed to you at the start of the session (
 
 You will be greeted with the Dashboard screen showing the amount of free and used resources. ![Greenfield dashboard](img/horizon-dashboard.png "Greenfield dashboard")
 These resources are:
+
 - Instances:        Number of computers available
 - VCPU:             Virtual CPUs available
 - RAM:              Amount of memory available
@@ -145,15 +146,13 @@ Congratulations, this is the end of the walkthrough. If you have some time left 
 This section uses patterns to build an autoscaling 3-tier wordpress application.
 Here we use descriptive language to define the infrastructure in code, rather than manually implementing it step-by-step.
 
-### Let's do it!
-
 Use the hand-out, you can find username and password under the heading __1.1 Linux stepping-stone machine__).
 
-#### 1. Log in to the stepping stone machine using ```ssh```.
+### 1. Log in to the stepping stone machine using ```ssh```
 
 Before proceeding go back to the GUI, navigate to ```Compute - Instances``` and select ```Disassociate Floating IP``` on the instance you created in the previous section because you need this IP to create the stack.
 
-#### 2. Set the environment.
+### 2. Set the environment
 
 > `source ospdemo<yournumber>rc`
 
@@ -165,7 +164,7 @@ If it returns and empty line, continue, otherwise reissue the previous command.
 
 > `cd openstack-heat-templates/3-tier-lamp-wordpress`
 
-#### 3. Create the stack
+### 3. Create the stack
 
 In the GUI, navigate to Orchestration - Stacks.
 
@@ -195,7 +194,7 @@ By now your stack should be deployed and ready to use.
 
 __There should be at least 2 minutes between creating the stack and this point in time__
 
-#### 4. Configure Wordpress.
+### 4. Configure Wordpress
 
 1. In the GUI navigate to ```Orchestration - Stacks```. 
 
@@ -211,7 +210,7 @@ __There should be at least 2 minutes between creating the stack and this point i
 
 7. Your wordpress is now ready to use. Try it out!
 
-#### 5. Stack changes
+### 5. Stack changes
 
 Changes made to individual machines in the gui or via the command line are not being traced. Changes to the template however are. To simulate this we will make a simple change to the template and update the stack.
 
