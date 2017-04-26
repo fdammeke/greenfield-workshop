@@ -227,7 +227,7 @@ cd openstack-heat-templates
 3. Make a simple change.
 The master template is the file ```WebAppAutoScaling.yaml```
 It refers to a couple of template files residing in the lib directory. We are changing one of the sub-templates.
-```sh
+```
 cp lib/heat_app_tier.yaml lib/heat_app_tierOLD.yaml
 
 cat lib/heat_app_tierOLD.yaml | sed "s/OK/Very good/" > \
@@ -256,4 +256,7 @@ Alternatively, use the command line to issue the command:
 
 ## Thank you for participating
 
-If you have feedback, please send it to (mailto:koen.goossens@cegeka.com)
+If you have feedback, please let us know.
+
+[Koen Goossens](mailto:koen.goossens@cegeka.com)
+[Steven Op de beeck](mailto:steven.opdebeeck@cegeka.com)
