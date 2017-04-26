@@ -114,7 +114,7 @@ To be able to access the ssh-server instance from outside the greenfield project
 
 1. Go to the Instances tab, under the Compute menu. Find the ssh-server instance in the list. In the ssh-server row, click the down arrow on the button and select ```Associate Floating IP```. ![Adding a floating IP](img/horizon-compute-instances-floatingip.png)
 2. In the ```Manage Floating IP Associations``` screen, select a floating IP from the dropdown box. If no floating IPs have been assigned to you, hit the plus button. ![Associate a floating IP](img/manage-floating-ip.png)
-3. [optional] Allocating a floating IP is only possible when there are public IPs left for you to reserve. From the ```Pool``` dropdown, select the same public network you selected for the router during the network setup. Allocate the IP. ![Allocate a floating IP](img/manage-floating-ip-allocate.png)
+3. [optional] Allocating a floating IP is only possible when there are public IPs left for you to reserve. From the ```Pool``` dropdown, ___select the same public network you selected for the router during the network setup___. Allocate the IP. ![Allocate a floating IP](img/manage-floating-ip-allocate.png)
 4. In the ```Port to be associated``` dropdown, select the ssh-server instance.
 5. Click Associate.
 
@@ -150,7 +150,7 @@ Use the hand-out, you can find username and password under the heading __1.1 Lin
 
 ### 1. Log in to the stepping stone machine using ```ssh```
 
-Before proceeding go back to the GUI, navigate to ```Compute - Instances``` and select ```Disassociate Floating IP``` on the instance you created in the previous section because you need this IP to create the stack.
+Before proceeding go back to the Greenfield dashboard, navigate to ```Compute - Instances``` and select ```Disassociate Floating IP``` on the instance you created in the previous section. You will need this IP to complete this assignment.
 
 ### 2. Set the environment
 
@@ -160,13 +160,15 @@ You can test whether your environment is set correctly by issuing the command
 
 > `openstack stack list`
 
-If it returns and empty line, continue, otherwise reissue the previous command.
+If it succeeds and returns and empty line, continue, otherwise re-issue the ```source``` command.
+
+Next, cd to the directory with the stack template.
 
 > `cd openstack-heat-templates/3-tier-lamp-wordpress`
 
 ### 3. Create the stack
 
-In the GUI, navigate to Orchestration - Stacks.
+In the Greenfield dashboard, navigate to Orchestration - Stacks.
 
 On the commandline, issue:
 
@@ -176,11 +178,11 @@ You should get following response:
 
 ![Stack Create Response](img/stack_create_response.PNG)
 
-Congratulations! Your stack is being built. You can check its progress by navigating in the GUI to the stack and choosing Topology or by issuing the command:
+Congratulations! Your stack is being built. You can check its progress by navigating in the dashboard to the stack and choosing Topology or by issuing the command:
 
 > `openstack stack list`
 
-You can also take a look at the compute instances and network configurations being created in the GUI or via the command line.
+You can also take a look at the compute instances and network configurations being created in the dashboard or via the command line.
 
 > `openstack server list`
 
@@ -196,7 +198,7 @@ __There should be at least 2 minutes between creating the stack and this point i
 
 ### 4. Configure Wordpress
 
-1. In the GUI navigate to ```Orchestration - Stacks```. 
+1. In the dashboard navigate to ```Orchestration - Stacks```. 
 
 2. Click on the link of your stack.
 
@@ -212,7 +214,7 @@ __There should be at least 2 minutes between creating the stack and this point i
 
 ### 5. Stack changes
 
-Changes made to individual machines in the gui or via the command line are not being traced. Changes to the template however are. To simulate this we will make a simple change to the template and update the stack.
+Changes made to individual machines in the dashboard or via the command line are not being traced. Changes to the template however are. To simulate this we will make a simple change to the template and update the stack.
 
 1. Log in to the stepping stone server via `ssh`
 
@@ -238,7 +240,7 @@ Issue the command.
 > `openstack stack update --template WebAppAutoScaling.yaml --parameter ssh_key_name=demo --parameter image_id=centos7 --parameter dns_nameserver="8.8.8.8,8.8.8.4" --parameter public_network_id=public01 mystackname`
 
 Openstack will redeploy the webservers; it creates 2 new servers and removes the old servers.
-You can track this via the GUI ```Compute - Instances``` or command line.
+You can track this via the dashboard ```Compute - Instances``` or command line.
 
 > `openstack server list`
 
@@ -246,7 +248,7 @@ You can track this via the GUI ```Compute - Instances``` or command line.
 
 Time to clean up? Delete a stack and if you want to, create a new one.
 
-To delete a stack, use the GUI and navigate to ```Orchestration - Stacks``` and select the dropdown option ```Delete stack``` of your stack.
+To delete a stack, use the dashboard and navigate to ```Orchestration - Stacks``` and select the dropdown option ```Delete stack``` of your stack.
 
 Alternatively, use the command line to issue the command
 
