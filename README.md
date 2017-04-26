@@ -258,5 +258,5 @@ Alternatively, use the command line to issue the command:
 
 If you have feedback, please let us know.
 
-[Koen Goossens](mailto:koen.goossens@cegeka.com)
+[Koen Goossens](mailto:koen.goossens@cegeka.com)<br />
 [Steven Op de beeck](mailto:steven.opdebeeck@cegeka.com)
