@@ -140,7 +140,7 @@ Congratulations, this is the end of the walkthrough. If you have some time left 
 This section uses patterns to build an autoscaling 3-tier wordpress application.
 Here we use descriptive language to define the infrastructure in code, rather than manually implementing it step-by-step.
 
-### Prepare your work environment
+### Let's do it!
 
 Use the hand-out, you can find username and password under the heading __1.1 Linux stepping-stone machine__).
 
