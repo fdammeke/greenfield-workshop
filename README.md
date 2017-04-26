@@ -38,8 +38,13 @@ Enter the credentials that have been handed to you at the start of the session (
 
 You will be greeted with the Dashboard screen showing the amount of free and used resources. ![Greenfield dashboard](img/horizon-dashboard.png "Greenfield dashboard")
 These resources are:
-- Instances: ...
-- TODO
+- Instances:        Number of computers available
+- VCPU:             Virtual CPUs available
+- RAM:              Amount of memory available
+- Floating IPs:     The amount of public IP addresses available.
+- Security Groups:  The amount of security groups which are constructs that define which TCP traffic is allowed to/from the instances to which these security groups are assigned.
+- Volumes:          The amount of storage volumes possible.
+- Volume Storage:   The amount of storage capacity available.
 
 ### 1. Set up a network
 One of the first things to do in a vanilla Greenfield environment (called project), is setting up a private network and a router that allows traffic to flow from and to the public network (the internet). To create a network navigate to _Network_ in the menu bar at the top, and click _Network Topology_. 
