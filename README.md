@@ -162,4 +162,26 @@ On the commandline, issue:
 
 > `openstack stack create --template WebAppAutoScaling.yaml --parameter ssh_key_name=demo --parameter image_id=centos7 --parameter dns_nameserver="8.8.8.8,8.8.8.4" --parameter public_network_id=public01 mystackname`
 
-![You should get the following output](img/stack_create_response.PNG)
+You should get following response: 
+
+![Stack Create Response](img/stack_create_response.PNG)
+
+Congratulations your stack is being built. You can check its progress by navigating in the GUI to the stack and choosing Topology or by issuing the command:
+
+> `openstack stack list`
+
+You can also take a look at the compute instances and network configurations being created in the GUI or via the command line.
+
+> `openstack server list`
+
+> `openstack router list`
+
+If you wish to explore the options of the command line issue the following command to view all the options:
+
+> `openstack --help`
+
+By now your stack should be deployed and ready to use. 
+
+** There should be at least 2 minutes between creating the stack and this point in time **
+
+
