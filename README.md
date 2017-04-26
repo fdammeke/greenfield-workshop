@@ -131,6 +131,12 @@ Once logged into the steppingstone server, use ```ssh``` to log into your instan
 
 ![Log into the instance with ssh](img/instance-login.png)
 
-Congratulations, this is the end of the walkthrough.
+Congratulations, this is the end of the walkthrough. If you have some time left you can proceed to the next section.
 
 ## Deploying a Loadbalanced Wordpress application
+
+### Prepare your work environment
+
+Use the hand-out, you can find username and password under the heading __1.1 Linux stepping-stone machine__).
+
+### 1. Log in to the stepping stone machine.
