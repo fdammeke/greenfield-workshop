@@ -32,9 +32,9 @@ In OpenStack, setting up a single linux server that you can access through SSH r
 Browse to the [Greenfield Web Dashboard](https://openstack-acc.cegeka.com) (open in a new tab). You should arrive on a page that looks like the following image. ![Greenfield Login](img/horizon-dashboard-login.png "Greenfield Login")
 Enter the credentials that have been handed to you at the start of the session (your username and password are under the heading __1.2 Openstack environment__).
 
-- Domain: "cegekanv"
-- Username: provided username
-- Password: provided password
+> Domain: "cegekanv"
+> Username: {provided}
+> Password: {provided}
 
 You will be greeted with the Dashboard screen showing the amount of free and used resources. ![Greenfield dashboard](img/horizon-dashboard.png "Greenfield dashboard")
 These resources are:
@@ -116,6 +116,15 @@ _The ssh-sever instance has now been allocated a floating IP. It is now accessib
 
 ### 5. Connecting to the ssh-server using SSH
 
-We are now ready to access our ssh-server through SSH. 
+We are now ready to access our ssh-server through SSH. Because the Greenfield OpenStack we are using in this workshop is not yet production-ready, it is not directly accessible from the internet. We need to go through a steppingstone server to access it.
+
+First, access the Linux stepping-stone machine using a terminal application (putty, ssh, ...). Use the credentials that have been handed to you at the start of the session (your username and password are under the heading __1.1 Linux stepping-stone machine__).
+
+> hostname: factoryfestival-steppingstone.cegeka.com
+> protocol: SSH
+> username: {provided}
+> password: {provided}
+
+Once you are on the steppingstone server, 
 
 ## Deploying a Loadbalanced Wordpress application

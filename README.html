@@ -1038,11 +1038,11 @@ body .markdown-body
 <h3 id="0-access-the-greenfield-dashboard"><a name="user-content-0-access-the-greenfield-dashboard" href="#0-access-the-greenfield-dashboard" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>0. Access the Greenfield Dashboard</h3>
 <p>Browse to the <a href="https://openstack-acc.cegeka.com">Greenfield Web Dashboard</a> (open in a new tab). You should arrive on a page that looks like the following image. <img alt="Greenfield Login" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-dashboard-login.png" title="Greenfield Login" /><br />
 Enter the credentials that have been handed to you at the start of the session (your username and password are under the heading <strong>1.2 Openstack environment</strong>).</p>
-<ul>
-<li>Domain: &ldquo;cegekanv&rdquo;</li>
-<li>Username: provided username</li>
-<li>Password: provided password</li>
-</ul>
+<blockquote>
+<p>Domain: &ldquo;cegekanv&rdquo;<br />
+Username: {provided}<br />
+Password: {provided}</p>
+</blockquote>
 <p>You will be greeted with the Dashboard screen showing the amount of free and used resources. <img alt="Greenfield dashboard" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-dashboard.png" title="Greenfield dashboard" /><br />
 These resources are:<br />
 - Instances: &hellip;<br />
@@ -1103,4 +1103,13 @@ These resources are:<br />
 <li>Click Associate.</li>
 </ol>
 <p><em>The ssh-sever instance has now been allocated a floating IP. It is now accessible from outside of the OpenStack sandbox on the floating IP you have selected. In a true cloud application, floating IPs are used sparringly. Only to expose the instances that need to be accessible from the outside.</em></p>
+<h3 id="5-connecting-to-the-ssh-server-using-ssh"><a name="user-content-5-connecting-to-the-ssh-server-using-ssh" href="#5-connecting-to-the-ssh-server-using-ssh" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5. Connecting to the ssh-server using SSH</h3>
+<p>We are now ready to access our ssh-server through SSH. First, access the Linux stepping-stone machine using a terminal application (putty, ssh, &hellip;).</p>
+<blockquote>
+<p>hostname: factoryfestival-steppingstone.cegeka.com<br />
+protocol: SSH<br />
+username: {provided}<br />
+password: {provided}</p>
+</blockquote>
+<p>Enter the credentials that have been handed to you at the start of the session (your username and password are under the heading <strong>1.2 Openstack environment</strong>).</p>
 <h2 id="deploying-a-loadbalanced-wordpress-application"><a name="user-content-deploying-a-loadbalanced-wordpress-application" href="#deploying-a-loadbalanced-wordpress-application" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Deploying a Loadbalanced Wordpress application</h2></article></body></html>
