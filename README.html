@@ -1076,7 +1076,7 @@ These resources are:<br />
 <p><img alt="" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-tab-compute-access.png" /></p>
 <ol>
 <li>In the Access &amp; Security screen, click <code>Create Security Group</code>. Create a security group by the name <code>ssh-access-incoming</code>.</li>
-<li>In the Security Group management screen you will see that two rules have been created by default. Now we will add a rule that allows incoming SSH traffic. Click <code>Add Rule</code>. <img alt="" src="/Users/steveodb/repos/greenfield-workshop/img/security-group-management.png" /></li>
+<li>In the Security Group management screen you will see that two rules have been created by default. We will add a rule that allows incoming SSH traffic. Click <code>Add Rule</code>. <img alt="" src="/Users/steveodb/repos/greenfield-workshop/img/security-group-management.png" /></li>
 <li>In the Add Rule screen, select the <code>SSH</code> rule from the dropdown box and leave Remote set to <code>CIDR</code>. This will allow incoming ssh traffic from any IP (this is probably not a good idea on a production system). Create the rule. <img alt="" src="/Users/steveodb/repos/greenfield-workshop/img/add-rule-ruletype.png" /></li>
 </ol>
 <p><em>This completes the creation of a Security Group that allows incoming SSH traffic. We will later attach this Security Group to our SSH server instance. this will allow incoming SSH traffic to flow to the instance.</em></p>
@@ -1091,5 +1091,16 @@ These resources are:<br />
 <li>Finally, skip to <code>Security Groups</code> and add the <code>ssh-access-incoming</code>security group that we created earlier.</li>
 <li>Launch the Instance.</li>
 </ol>
-<p><img alt="Topology with network and instance" src="/Users/steveodb/repos/greenfield-workshop/img/network-topology-with-instance.png" /></p>
+<p><em>The Topology visualization will show the Instance we just created from a centos7 image. The instance will be allowed incoming SSH traffic.</em><br />
+<img alt="Topology with network and instance" src="/Users/steveodb/repos/greenfield-workshop/img/network-topology-with-instance.png" /></p>
+<h3 id="5-assign-a-public-floating-ip-to-an-instance"><a name="user-content-5-assign-a-public-floating-ip-to-an-instance" href="#5-assign-a-public-floating-ip-to-an-instance" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5. Assign a public (floating) IP to an Instance</h3>
+<p>To be able to access the ssh-server instance from outside the greenfield project sandbox, we will need to attach a floating IP to the ssh-server instance.</p>
+<ol>
+<li>Go to the Instances tab, under the Compute menu. Find the ssh-server instance in the list. In the ssh-server row, click the down arrow on the button and select <code>Associate Floating IP</code>. <img alt="Adding a floating IP" src="/Users/steveodb/repos/greenfield-workshop/img/horizon-compute-instances-floatingip.png" /></li>
+<li>In the <code>Manage Floating IP Associations</code> screen, select a floating IP from the dropdown box. If no floating IPs have been assigned to you, hit the plus button. <img alt="Associate a floating IP" src="/Users/steveodb/repos/greenfield-workshop/img/manage-floating-ip.png" /></li>
+<li>[optional] Allocating a floating IP is only possible when there are public IPs left for you to reserve. From the <code>Pool</code> dropdown, select the same public network you selected for the router during the network setup. Allocate the IP. <img alt="Allocate a floating IP" src="/Users/steveodb/repos/greenfield-workshop/img/manage-floating-ip-allocate.png" /></li>
+<li>In the <code>Port to be associated</code> dropdown, select the ssh-server instance.</li>
+<li>Click Associate.</li>
+</ol>
+<p><em>The ssh-sever instance has now been allocated a floating IP. It is now accessible from outside of the OpenStack sandbox on the floating IP you have selected. In a true cloud application, floating IPs are used sparringly. Only to expose the instances that need to be accessible from the outside.</em></p>
 <h2 id="deploying-a-loadbalanced-wordpress-application"><a name="user-content-deploying-a-loadbalanced-wordpress-application" href="#deploying-a-loadbalanced-wordpress-application" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Deploying a Loadbalanced Wordpress application</h2></article></body></html>

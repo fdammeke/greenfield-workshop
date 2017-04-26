@@ -80,7 +80,7 @@ Setting up a security group is done through the ```Access & Security``` tab unde
 ![](img/horizon-tab-compute-access.png)
 
 1. In the Access & Security screen, click ```Create Security Group```. Create a security group by the name ```ssh-access-incoming```.
-2. In the Security Group management screen you will see that two rules have been created by default. Now we will add a rule that allows incoming SSH traffic. Click ```Add Rule```. ![](img/security-group-management.png)
+2. In the Security Group management screen you will see that two rules have been created by default. We will add a rule that allows incoming SSH traffic. Click ```Add Rule```. ![](img/security-group-management.png)
 3. In the Add Rule screen, select the ```SSH``` rule from the dropdown box and leave Remote set to ```CIDR```. This will allow incoming ssh traffic from any IP (this is probably not a good idea on a production system). Create the rule. ![](img/add-rule-ruletype.png)
 
 _This completes the creation of a Security Group that allows incoming SSH traffic. We will later attach this Security Group to our SSH server instance. this will allow incoming SSH traffic to flow to the instance._
@@ -104,6 +104,18 @@ _The Topology visualization will show the Instance we just created from a centos
 
 ### 5. Assign a public (floating) IP to an Instance
 
-To be able to access the ssh-server instance from outside the greenfield project sandbox, we will need to attach a floating IP to our running instance.
+To be able to access the ssh-server instance from outside the greenfield project sandbox, we will need to attach a floating IP to the ssh-server instance.
+
+1. Go to the Instances tab, under the Compute menu. Find the ssh-server instance in the list. In the ssh-server row, click the down arrow on the button and select ```Associate Floating IP```. ![Adding a floating IP](img/horizon-compute-instances-floatingip.png)
+2. In the ```Manage Floating IP Associations``` screen, select a floating IP from the dropdown box. If no floating IPs have been assigned to you, hit the plus button. ![Associate a floating IP](img/manage-floating-ip.png)
+3. [optional] Allocating a floating IP is only possible when there are public IPs left for you to reserve. From the ```Pool``` dropdown, select the same public network you selected for the router during the network setup. Allocate the IP. ![Allocate a floating IP](img/manage-floating-ip-allocate.png)
+4. In the ```Port to be associated``` dropdown, select the ssh-server instance.
+5. Click Associate.
+
+_The ssh-sever instance has now been allocated a floating IP. It is now accessible from outside of the OpenStack sandbox on the floating IP you have selected. In a true cloud application, floating IPs are used sparringly. Only to expose the instances that need to be accessible from the outside._
+
+### 5. Connecting to the ssh-server using SSH
+
+We are now ready to access our ssh-server through SSH. 
 
 ## Deploying a Loadbalanced Wordpress application
