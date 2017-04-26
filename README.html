@@ -1104,12 +1104,18 @@ These resources are:<br />
 </ol>
 <p><em>The ssh-sever instance has now been allocated a floating IP. It is now accessible from outside of the OpenStack sandbox on the floating IP you have selected. In a true cloud application, floating IPs are used sparringly. Only to expose the instances that need to be accessible from the outside.</em></p>
 <h3 id="5-connecting-to-the-ssh-server-using-ssh"><a name="user-content-5-connecting-to-the-ssh-server-using-ssh" href="#5-connecting-to-the-ssh-server-using-ssh" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5. Connecting to the ssh-server using SSH</h3>
-<p>We are now ready to access our ssh-server through SSH. First, access the Linux stepping-stone machine using a terminal application (putty, ssh, &hellip;).</p>
+<p>We are now ready to access our ssh-server through SSH. Because authentication in Greenfield is key-based (instead of password-based) and to keep the setup at the start of the workshop simple, we have prepared a steppingstone server that has the private key installed.</p>
+<p>To access the steppingstone machine, you need a terminal application like putty or ssh. Use the credentials that have been handed to you at the start of the session (your username and password are under the heading <strong>1.1 Linux stepping-stone machine</strong>).</p>
 <blockquote>
 <p>hostname: factoryfestival-steppingstone.cegeka.com<br />
 protocol: SSH<br />
 username: {provided}<br />
 password: {provided}</p>
 </blockquote>
-<p>Enter the credentials that have been handed to you at the start of the session (your username and password are under the heading <strong>1.2 Openstack environment</strong>).</p>
+<p>Once logged into the steppingstone server, use <code>ssh</code> to log into your instance. You will need the floating IP that you have associated to your instance before. Just ssh to that IP, with username <code>centos</code> (hardcoded into the centos7 image).</p>
+<blockquote>
+<p>ssh -l centos {floatingip}</p>
+</blockquote>
+<p><img alt="Log into the instance with ssh" src="/Users/steveodb/repos/greenfield-workshop/img/instance-login.png" /></p>
+<p>This is the end of the walkthrough.</p>
 <h2 id="deploying-a-loadbalanced-wordpress-application"><a name="user-content-deploying-a-loadbalanced-wordpress-application" href="#deploying-a-loadbalanced-wordpress-application" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Deploying a Loadbalanced Wordpress application</h2></article></body></html>

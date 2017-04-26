@@ -116,15 +116,21 @@ _The ssh-sever instance has now been allocated a floating IP. It is now accessib
 
 ### 5. Connecting to the ssh-server using SSH
 
-We are now ready to access our ssh-server through SSH. Because the Greenfield OpenStack we are using in this workshop is not yet production-ready, it is not directly accessible from the internet. We need to go through a steppingstone server to access it.
+We are now ready to access our ssh-server through SSH. Because authentication in Greenfield is key-based (instead of password-based) and to keep the setup at the start of the workshop simple, we have prepared a steppingstone server that has the private key installed.
 
-First, access the Linux stepping-stone machine using a terminal application (putty, ssh, ...). Use the credentials that have been handed to you at the start of the session (your username and password are under the heading __1.1 Linux stepping-stone machine__).
+To access the steppingstone machine, you need a terminal application like putty or ssh. Use the credentials that have been handed to you at the start of the session (your username and password are under the heading __1.1 Linux stepping-stone machine__).
 
 > hostname: factoryfestival-steppingstone.cegeka.com
 > protocol: SSH
 > username: {provided}
 > password: {provided}
 
-Once you are on the steppingstone server, 
+Once logged into the steppingstone server, use ```ssh``` to log into your instance. You will need the floating IP that you have associated to your instance before. Just ssh to that IP, with username ```centos``` (hardcoded into the centos7 image).
+
+> ssh -l centos {floatingip}
+
+![Log into the instance with ssh](img/instance-login.png)
+
+This is the end of the walkthrough.
 
 ## Deploying a Loadbalanced Wordpress application
