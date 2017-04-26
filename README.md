@@ -133,16 +133,14 @@ Once logged into the steppingstone server, use ```ssh``` to log into your instan
 
 Congratulations, this is the end of the walkthrough. If you have some time left you can proceed to the next section.
 
-## Deploying a Autoscaling Wordpress application
+## Deploying an autoscaling Wordpress application
 
-### Prepare your work environment
-
-#### Context
+### Context
 
 This section uses patterns to build an autoscaling 3-tier wordpress application.
 Here we use descriptive language to define the infrastructure in code, rather than manually implementing it step-by-step.
 
-#### Let's do it!
+### Prepare your work environment
 
 Use the hand-out, you can find username and password under the heading __1.1 Linux stepping-stone machine__).
 
@@ -182,7 +180,7 @@ If you wish to explore the options of the command line issue the following comma
 
 By now your stack should be deployed and ready to use. 
 
-```There should be at least 2 minutes between creating the stack and this point in time```
+__There should be at least 2 minutes between creating the stack and this point in time__
 
 #### 4. Configure Wordpress.
 
