@@ -18,6 +18,8 @@ You will be interacting with the Greenfield OpenStack in two ways: the web dashb
 - The _Greenfield Web Dashboard_ is a convenient way to view and manage your OpenStack setup.
 - The _Greenfield commandline interface_ is better suited for an interface-as-code way of interacting. For instance by issuing a command to load pre-defined configuration templates from a file, or to invoke specific commands to bring up an instance, etc.
 
+If you need help with any of the two interfaces, feel free to ask, or look it up in the [OpenStack End User Guide](https://docs.openstack.org/user-guide/index.html).
+
 _After this introduction, it's up to you to get your hands dirty. We propose you start with the most simple case of creating a single Linux server that you can log into with SSH._
 
 ### Case 1 --- [A Single Linux Server with SSH Access](case1_one_ssh_instance.md)
