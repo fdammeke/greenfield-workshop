@@ -1,4 +1,4 @@
-## A Single Linux Server with SSH Access
+# A Single Linux Server with SSH Access
 
 In OpenStack, setting up a single linux server that you can access through SSH requires taking care of a number of things:
 1. Setting up a Network 
@@ -6,7 +6,7 @@ In OpenStack, setting up a single linux server that you can access through SSH r
 3. Launching an Instance (virtual machine)
 4. Associating a Floating IP (a public IP to access your instance)
 
-### 0. Access the Greenfield Dashboard
+## 0. Access the Greenfield Dashboard
 Browse to the [Greenfield Web Dashboard](https://openstack-acc.cegeka.com) (best opened in a new tab). You should arrive on a page that looks like the following image. ![Greenfield Login](img/horizon-dashboard-login.png "Greenfield Login")
 Enter the credentials that have been handed to you at the start of the session (your username and password are under the heading __1.2 Openstack environment__).
 
@@ -25,12 +25,12 @@ These resources are:
 - Volumes:          The amount of storage volumes possible.
 - Volume Storage:   The amount of storage capacity available.
 
-### 1. Set up a network
+## 1. Set up a network
 One of the first things to do in a vanilla Greenfield environment (called project), is setting up a private network and a router that allows traffic to flow from and to the public network (the internet). To create a network navigate to _Network_ in the menu bar at the top, and click _Network Topology_. 
 
 ![Network Topology tab](img/horizon-tab-network.png "Network Topology tab")
 
-#### Create a network and subnet
+### Create a network and subnet
 On the right of the Network Topology screen are three buttons, click ```Create Network```.
 
 1. Give your network the name ```private``` and go the next step. ![Create Network](img/create-network.png)
@@ -41,7 +41,7 @@ Your network is created and visualised in the topology (properly rotated here fo
 
 ![Network Topology](img/create-network-done.png)
 
-#### Create a router
+### Create a router
 Next, we need to add a router to allow traffic to flow between the public and private networks. On the _Network Topology_ tab, on the right side, click ```Add Router```.
 
 1. Give your router a name (e.g. publicrouter) and select an External Network from the dropdown box (scroll down if you don't see the dropdown box). ___If there is more than one option, ask one of the tutors which one you should select___. Click the ```Create Router``` buttton. ![Create Router](img/create-router.png)
@@ -54,7 +54,7 @@ Your private network is now connected to the public network through the router. 
 
 _This concludes the network setup. All virtual machines (instances in openstack terminology) added to this private network will have access to the public network._
 
-### 2. Define a Security Group
+## 2. Define a Security Group
 A security group defines the rules for networking access between instances. The default security group defines that all outgoing traffic from instances is allowed, but all incoming traffic is blocked.
 
 To be able SSH into the instance we will later create, we need to allow incoming SSH traffic.
@@ -69,7 +69,7 @@ Setting up a security group is done through the ```Access & Security``` tab unde
 
 _This completes the creation of a Security Group that allows incoming SSH traffic. We will later attach this Security Group to our SSH server instance. this will allow incoming SSH traffic to flow to the instance._
 
-### 3. Launching an Instance
+## 3. Launching an Instance
 
 At this time, the project doesn't have any instances running. You can verify this by consulting the Instances tab, under the Compute menu.
 
@@ -86,7 +86,7 @@ Now, head back to the Network Topology tab, under the Network menu. Clicking the
 _The Topology visualization will show the Instance we just created from a centos7 image. The instance will be allowed incoming SSH traffic._
 ![Topology with network and instance](img/network-topology-with-instance.png)
 
-### 5. Assign a public (floating) IP to an Instance
+## 5. Assign a public (floating) IP to an Instance
 
 To be able to access the ssh-server instance from outside the greenfield project sandbox, we will need to attach a floating IP to the ssh-server instance.
 
@@ -98,7 +98,7 @@ To be able to access the ssh-server instance from outside the greenfield project
 
 _The ssh-sever instance has now been allocated a floating IP. It is now accessible from outside of the OpenStack sandbox on the floating IP you have selected. In a true cloud application, floating IPs are used sparringly. Only to expose the instances that need to be accessible from the outside._
 
-### 5. Connecting to the ssh-server using SSH
+## 5. Connecting to the ssh-server using SSH
 
 We are now ready to access our ssh-server through SSH. Because authentication in Greenfield is key-based (instead of password-based) and to keep the setup at the start of the workshop simple, we have prepared a steppingstone server that has the private key installed.
 
@@ -114,6 +114,18 @@ Once logged into the steppingstone server, use ```ssh``` to log into your instan
 > ssh -l centos {floatingip}
 
 ![Log into the instance with ssh](img/instance-login.png)
+
+---
+
+___When you are done experimenting with your ssh server setup, please destroy it completely before you move on.___
+
+-  Release floating IP
+-  Delete instances
+-  Remove routers
+-  Remove your private networks
+-  ...
+
+---
 
 ## Thank you for participating
 
