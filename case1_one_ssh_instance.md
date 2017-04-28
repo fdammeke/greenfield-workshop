@@ -78,7 +78,7 @@ Now, head back to the Network Topology tab, under the Network menu. Clicking the
 ![Launch an Instance](img/launch-instance.png)
 
 1. On the ```Details``` screen, provide a name for your instance (eg. "ssh-server"). You will be limited in the amount of instances you can create by the resources that have been reserved for your project. Move on the the ```Source``` screen.
-2. In the source screen, pick ```Image``` fom the ```Select Boot Source``` screen and add the ```centos7``` image by tapping the plus-sign behind its name.
+2. In the source screen, pick ```Image``` fom the ```Select Boot Source``` screen, mark ```Create New Volume``` No. Add the ```centos7``` image by tapping the plus-sign behind its name.
 3. In the ```Flavor``` screen, add the ````m1.small```` flavor (tap on the plus).
 4. Finally, skip to ```Security Groups``` and add the ```ssh-access-incoming```security group that we created earlier.
 5. Launch the Instance.
@@ -119,7 +119,8 @@ Once logged into the steppingstone server, use ```ssh``` to log into your instan
 
 ___When you are done experimenting with your ssh server setup, please destroy it completely before you move on.___
 
--  Release floating IP
+-  Disassociate floating IP
+-  Release floating IP (select checkmark and click red button 'Release Floating IPs')
 -  Delete instances
 -  Remove routers
 -  Remove your private networks

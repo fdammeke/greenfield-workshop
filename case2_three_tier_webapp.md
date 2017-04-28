@@ -17,7 +17,7 @@ Verify that your previous setups in OpenStack have been completely destroyed.
 
 ## 1. Log in to the steppingstone machine using ```ssh```
 
-Before proceeding go back to the Greenfield dashboard, navigate to ```Compute - Instances``` and select ```Disassociate Floating IP``` on the instance you created in the previous section. You will need this IP to complete this walkthrough.
+Before proceeding go back to the Greenfield dashboard, navigate to ```Compute - Access & Security``` tab ```Floating IPs```, select the instance you created in the previous section and click ```Disassociate Floating IP```. You will need this IP to complete this walkthrough.
 
 ## 2. Set the environment
 
@@ -52,7 +52,7 @@ dns_nameserver="8.8.8.8,8.8.8.4" --parameter public_network_id=public01 \
 mystackname
 ```
 
-You should get following response: 
+You should get following response:
 
 ![Stack Create Response](img/stack_create_response.PNG)
 
